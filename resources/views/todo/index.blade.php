@@ -11,7 +11,7 @@
    <div class="container">
        <div class="row">
            <div class="col">
-               <h1>My List</h1>
+               <h1>{{$name}}'s Todos</h1>
 
                <div class="card">
                    <div class="class-body">
@@ -24,19 +24,17 @@
                                </tr>
                            </thead>
                            <tbody>
+                               @foreach ($todos as $todo )
                                <tr>
-                                   <td>Makan</td>
+                                   <td>{{$todo->name}}</td>
+                                   <td>{{$todo->status}}</td>
                                    <td>not done</td>
                                    <td><button class="btn btn-primary">Done</button></td>
                                </tr>
-                            <tr>
-                                <td>Makan</td>
-                                <td>not done</td>
-                                <td><button class="btn btn-primary">Done</button></td>
-                            </tr>
-
+                           @endforeach
                         </tbody>
                         </table>
+                        {{ $todos->links()}}
                    </div>
                </div>
            </div>
